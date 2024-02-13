@@ -2,10 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* import font from publics folder */
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  --primary: #181e4b;
+  --primary-rgb: rgb(24, 30, 75);
+  --secondary: #f1a501;
+  --secondary-rgb: 241, 165, 1;
+  --tetriary: #df6951;
+  --tetriary-rgb: 223, 105, 81;
+  --quaternary: #636685;
+  --quaternary-rgb: 99, 102, 133;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,6 +26,17 @@
     --foreground-rgb: 0, 0, 0;
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: 255, 255, 255;
+
+    --primary: #181e4b;
+    --primary-rgb: rgb(24, 30, 75);
+    --secondary: #f1a501;
+    --secondary-rgb: 241, 165, 1;
+    --tetriary: #df6951;
+    --tetriary-rgb: 223, 105, 81;
+    --quaternary: #636685;
+    --quaternary-rgb: 99, 102, 133;
+    --quinary: #f9f7fe;
+    --quinary-rbg: 249, 247, 254;
   }
 }
 
