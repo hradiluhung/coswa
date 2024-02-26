@@ -39,6 +39,13 @@ const config: Config = {
       boxShadow: {
         myShadow: "0px 25px 50px -12px rgba(0, 0, 0, 0.25)",
       },
+      borderColor: {
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        tetriary: "var(--tetriary)",
+        quaternary: "var(--quaternary)",
+        quinary: "var(--quinary)",
+      },
     },
   },
   plugins: [],

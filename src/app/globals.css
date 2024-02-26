@@ -9,7 +9,7 @@
   --background-end-rgb: 255, 255, 255;
 
   --primary: #181e4b;
-  --primary-rgb: rgb(24, 30, 75);
+  --primary-rgb: #181e4b;
   --secondary: #f1a501;
   --secondary-rgb: 241, 165, 1;
   --tetriary: #df6951;
@@ -30,6 +30,7 @@
     --primary: #181e4b;
     --primary-rgb: rgb(24, 30, 75);
     --secondary: #f1a501;
+
     --secondary-rgb: 241, 165, 1;
     --tetriary: #df6951;
     --tetriary-rgb: 223, 105, 81;
@@ -51,4 +52,13 @@ h1 {
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-end-rgb));
+}
+
+.mySticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: yellow;
+  padding: 50px;
+  font-size: 20px;
 }

@@ -43,7 +43,7 @@ export default function StackedCards({ items }: Props) {
   }
 
   return (
-    <div className="flex justify-end gap-4">
+    <div className="flex justify-end gap-4 text-lg">
       {/* Active Card */}
       <div className="relative">
         <div

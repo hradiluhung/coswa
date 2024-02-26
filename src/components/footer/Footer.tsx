@@ -16,6 +16,10 @@ export default function Footer() {
             <p className="text-quaternary font-medium">
               Memastikan perjalanan aman, memberikan pelayanan ternyaman
             </p>
+            <p className="text-quaternary mt-4 text-xs">
+              Jalan H. Saweh Desa Sukadami Kec. Cikarang Selatan Kabupaten
+              Bekasi Jawa Barat Kode Pos 17530
+            </p>
           </div>
           <div className="flex gap-2 flex-col w-full lg:w-auto">
             {navbarItems.map((item, index) => (
@@ -42,24 +46,24 @@ export default function Footer() {
             >
               <Instagram size={24} />
             </Link>
-            <Link
+            {/* <Link
               href={"https://www.youtube.com"}
               className="p-2 bg-slate-100 rounded-full text-primary"
             >
               <Youtube size={24} />
-            </Link>
+            </Link> */}
             <Link
               href={"https://www.facebook.com"}
               className="p-2 bg-slate-100 rounded-full text-primary"
             >
               <Facebook size={24} />
             </Link>
-            <Link
+            {/* <Link
               href={"https://www.linkedin.com"}
               className="p-2 bg-slate-100 rounded-full text-primary"
             >
               <Linkedin size={24} />
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
