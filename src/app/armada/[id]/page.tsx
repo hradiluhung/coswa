@@ -92,7 +92,7 @@ export default function Page({ params }: { params: { id: string } }) {
             </p>
             <div className="bg-quinary p-8 rounded-xl mt-8">
               <h2 className="font-title font-semibold text-2xl">Fasilitas</h2>
-              <ul className="grid mg:grid-cols-2 gap-4 mt-4 list-disc pl-6">
+              <ul className="grid md:grid-cols-2 gap-4 mt-4 list-disc pl-6">
                 {armada.facilities.map((facility, index) => (
                   <li key={index}>
                     <p className="text-lg">{facility}</p>
