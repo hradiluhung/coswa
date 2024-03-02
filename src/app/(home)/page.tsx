@@ -105,7 +105,7 @@ export default function Home() {
         >
           <div className="bg-black bg-opacity-70 w-full h-full absolute top-0 left-0 z-10"></div>
           <Image
-            src="/images/armadas/Al Fatih/1.jpg"
+            src="/images/armadas/Al Qowiyyu/1.jpg"
             width={400}
             height={400}
             alt="Home Image"
