@@ -64,7 +64,7 @@ export default function Page() {
                 Big Bus
               </h1>
               <p className="text-quaternary mt-6 text-center">
-                BBig Bus adalah pilihan armada dengan kapasitas besar. Dengan
+                Big Bus adalah pilihan armada dengan kapasitas besar. Dengan
                 konfigurasi tempat duduk berkapasitas 59-45 orang, pilihan Big
                 Bus cocok untuk berpergian dan perjalanan bagi kelompok dalam
                 jumlah besar.
