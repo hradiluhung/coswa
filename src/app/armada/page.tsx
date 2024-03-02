@@ -64,6 +64,11 @@ export default function Page() {
                 Big Bus
               </h1>
               <p className="text-quaternary mt-6 text-center">
+                BBig Bus adalah pilihan armada dengan kapasitas besar. Dengan
+                konfigurasi tempat duduk berkapasitas 59-45 orang, pilihan Big
+                Bus cocok untuk berpergian dan perjalanan bagi kelompok dalam
+                jumlah besar.
+                <br /> <br />
                 Big Bus adalah solusi bagi perjalanan wisata keluarga, ziarah,
                 study tour, kunjungan kerja, antar jemput karyawan dan berbagai
                 keperluan perjalanan lainnya yang menghajatkan kapasitas
@@ -113,7 +118,7 @@ export default function Page() {
                               <p className="font-semibold">{armada.price}</p>
                             </div>
                             <div>
-                              <Link href={`/armada/${index}`}>
+                              <Link href={`/armada/${armada.id}`}>
                                 <button className="bg-button-gradient px-4 py-2 font-medium text-white rounded-2xl">
                                   Lihat Detail
                                 </button>
@@ -154,11 +159,17 @@ export default function Page() {
                 Medium Bus
               </h1>
               <p className="text-quaternary mt-6 text-center">
-                Big Bus adalah solusi bagi perjalanan wisata keluarga, ziarah,
-                study tour, kunjungan kerja, antar jemput karyawan dan berbagai
-                keperluan perjalanan lainnya yang menghajatkan kapasitas
-                penumpang yang besar. Fasilitas yang lengkap dan terawat adalah
-                usaha kami untuk memastikan perjalanan anda selalu istimewa.
+                Medium Bus adalah pilihan armada dengan kapasitas Sedang. Dengan
+                konfigurasi tempat duduk berkapasitas 33-29 orang, pilihan
+                Medium Bus cocok untuk berpergian dan perjalanan bagi kelompok
+                dalam jumlah kecil dan sedang.
+                <br />
+                <br />
+                Medium Bus adalah solusi bagi perjalanan wisata keluarga,
+                ziarah, study tour, kunjungan kerja, antar jemput karyawan dan
+                berbagai keperluan perjalanan lainnya. Fasilitas yang lengkap
+                dan terawat adalah usaha kami untuk memastikan perjalanan anda
+                selalu istimewa.
               </p>
               <div className="w-full mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {armadaList
@@ -203,7 +214,7 @@ export default function Page() {
                               <p className="font-semibold">{armada.price}</p>
                             </div>
                             <div>
-                              <Link href={`/armada/${index}`}>
+                              <Link href={`/armada/${armada.id}`}>
                                 <button className="bg-button-gradient px-4 py-2 font-medium text-white rounded-2xl">
                                   Lihat Detail
                                 </button>

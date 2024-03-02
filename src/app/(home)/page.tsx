@@ -99,10 +99,7 @@ export default function Home() {
       </section>
 
       <section className="px-4 py-12 md:px-12 md:py-12 lg:px-32 lg:py-24 flex flex-col gap-4 md:gap-0 items-center justify-center">
-        <Link
-          href="/armada"
-          className="w-full h-80 rounded-tl-[128px] rounded-tr-[64px] rounded-br-[64px] relative flex justify-center items-center overflow-hidden group cursor-pointer"
-        >
+        <div className="w-full h-80 rounded-tl-[128px] rounded-tr-[64px] rounded-br-[64px] relative flex justify-center items-center overflow-hidden group ">
           <div className="bg-black bg-opacity-70 w-full h-full absolute top-0 left-0 z-10"></div>
           <Image
             src="/images/armadas/Al Qowiyyu/1.jpg"
@@ -111,15 +108,20 @@ export default function Home() {
             alt="Home Image"
             className="w-full h-full object-cover absolute top-0 left-0 z-0 group-hover:scale-110 transition-all duration-300"
           />
-          <div className="absolute inset-0 flex justify-center items-center flex-col gap-4 z-20">
-            <p className="text-white font-title font-semibold text-3xl ">
-              Lihat Selengkapnya
-            </p>
-            <p className="text-white font-medium text-lg">
+          <div className="absolute inset-0 flex justify-center items-center flex-col gap-4 z-20 p-8">
+            <p className="text-white font-title font-semibold text-3xl text-center">
               Temukan armada yang cocok untuk perjalanan anda
             </p>
+            <Link
+              href="/armada"
+              className="cursor-pointer text-white hover:bg-white transition-colors hover:text-black"
+            >
+              <p className="font-medium text-lg text-center border border-white px-4 py-2">
+                Lihat Selengkapnya
+              </p>
+            </Link>
           </div>
-        </Link>
+        </div>
       </section>
     </>
   )

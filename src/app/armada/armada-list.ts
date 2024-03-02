@@ -1,5 +1,6 @@
 export const armadaList = [
   {
+    id: 1,
     name: "Big Bus 001 Al Mubdi",
     imageFolder: "/images/armadas/Al Mubdi",
     type: "JetBus 2 HDD Adiputro",
@@ -18,6 +19,7 @@ export const armadaList = [
     ],
   },
   {
+    id: 2,
     name: "Big Bus 002 Al Qowiyyu",
     imageFolder: "/images/armadas/Al Qowiyyu",
     type: "JetBus 1 Single Glass Morodadi",
@@ -35,6 +37,7 @@ export const armadaList = [
     ],
   },
   {
+    id: 3,
     name: "Big Bus 003 Ar Razzaq",
     imageFolder: "/images/armadas/Ar Razzaq",
     type: "JetBus 3 HDD Adiputro",
@@ -53,6 +56,7 @@ export const armadaList = [
     ],
   },
   {
+    id: 4,
     name: "Big Bus 004 Al Fatih",
     imageFolder: "/images/armadas/Al Fatih",
     type: "Avante H9 Tentrem",
@@ -71,6 +75,7 @@ export const armadaList = [
     ],
   },
   {
+    id: 5,
     name: "Big Bus 007 Ar Rafah",
     imageFolder: "/images/armadas/Ar Rafah",
     type: "JetBus 3 HDD Adiputro",
@@ -90,6 +95,7 @@ export const armadaList = [
     ],
   },
   {
+    id: 6,
     name: "Big Bus 008 Al Baa'its",
     imageFolder: "/images/armadas/Al Baa'its",
     type: "JetBus 3 HDD Adiputro",
@@ -109,6 +115,7 @@ export const armadaList = [
     ],
   },
   {
+    id: 7,
     name: "Medium Bus 006 Al Mughni",
     imageFolder: "/images/armadas/Al Mughni",
     type: "JetBus 3 Medium Bus",
