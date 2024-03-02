@@ -99,33 +99,27 @@ export default function Home() {
       </section>
 
       <section className="px-4 py-12 md:px-12 md:py-12 lg:px-32 lg:py-24 flex flex-col gap-4 md:gap-0 items-center justify-center">
-        <div className="bg-quinary w-full py-12 px-12 md:py-12 md:px-24 lg:py-16 lg:px-32 rounded-tl-[128px] rounded-tr-[64px] rounded-br-[64px] relative overflow-hidden">
+        <Link
+          href="/armada"
+          className="w-full h-80 rounded-tl-[128px] rounded-tr-[64px] rounded-br-[64px] relative flex justify-center items-center overflow-hidden group cursor-pointer"
+        >
+          <div className="bg-black bg-opacity-70 w-full h-full absolute top-0 left-0 z-10"></div>
           <Image
-            src="/images/bg-subscribe.png"
+            src="/images/armadas/Al Fatih/1.jpg"
             width={400}
             height={400}
             alt="Home Image"
-            className="absolute -bottom-36 -left-36 object-cover"
+            className="w-full h-full object-cover absolute top-0 left-0 z-0 group-hover:scale-110 transition-all duration-300"
           />
-          <div className="relative w-full flex flex-col items-center justify-center">
-            <h1 className="font-title text-2xl md:text-4xl text-center font-semibold max-w-2xl">
-              Tertarik untuk selalu mendapatkan update dari kami?
-            </h1>
-            <div className="mt-8 flex gap-4 w-full lg:px-16 flex-col md:flex-row">
-              <div className="bg-white flex  gap-6 py-5 px-9 rounded-2xl w-full">
-                <Mail size={24} />
-                <input
-                  type="text"
-                  placeholder="Email Anda"
-                  className="focus:outline-none w-full"
-                ></input>
-              </div>
-              <button className="bg-button-gradient px-11 py-5 font-medium text-white rounded-2xl">
-                Langganan
-              </button>
-            </div>
+          <div className="absolute inset-0 flex justify-center items-center flex-col gap-4 z-20">
+            <p className="text-white font-title font-semibold text-3xl ">
+              Lihat Selengkapnya
+            </p>
+            <p className="text-white font-medium text-lg">
+              Temukan armada yang cocok untuk perjalanan anda
+            </p>
           </div>
-        </div>
+        </Link>
       </section>
     </>
   )

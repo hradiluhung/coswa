@@ -37,14 +37,12 @@ export default function Page() {
               width: "100%",
               clipPath: "polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)",
               height: "100%",
-              borderTopLeftRadius: "36px",
-              borderTopRightRadius: "36px",
               position: "relative",
               overflow: "hidden",
             }}
           >
             <Image
-              src="/images/armada-placeholder.jpg"
+              src="/images/armadas/Al Fatih/1.jpg"
               width={0}
               height={0}
               sizes="100vw"
