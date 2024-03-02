@@ -4,6 +4,7 @@ import { navbarItems } from "../navbar/navbar-item"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Facebook, Instagram, Linkedin, Youtube } from "react-feather"
+import Image from "next/image"
 
 export default function Footer() {
   const pathName = usePathname()
@@ -12,8 +13,13 @@ export default function Footer() {
       <div className="flex flex-col md:flex-row justify-between">
         <div className="flex gap-16 lg:gap-32">
           <div className="max-w-96">
-            <h1 className="font-title font-semibold text-5xl">Coswa</h1>
-            <p className="text-quaternary font-medium">
+            <Image
+              src="/images/logo/logo_text_1.png"
+              width={150}
+              height={100}
+              alt="Logo"
+            />
+            <p className="text-quaternary font-medium mt-2">
               Memastikan perjalanan aman, memberikan pelayanan ternyaman
             </p>
             <p className="text-quaternary mt-4 text-xs">

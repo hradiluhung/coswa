@@ -4,6 +4,7 @@ import { navbarItems } from "./navbar-item"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 import { Menu, X } from "react-feather"
+import Image from "next/image"
 
 export default function Navbar() {
   const pathName = usePathname()
@@ -24,16 +25,22 @@ export default function Navbar() {
         scrollY > 0 ? "bg-white/90 shadow-md" : "bg-transparent"
       }`}
     >
-      <h1 className="font-title font-semibold text-2xl">Coswa</h1>
+      <Image
+        src="/images/logo/logo_text_1.png"
+        width={100}
+        height={100}
+        alt="Logo"
+      />
+      {/* <h1 className="font-title font-semibold text-2xl">Coswa</h1> */}
       <div className="hidden md:flex gap-8">
         {navbarItems.map((item, index) => (
           <Link
             key={index}
             href={item.url}
-            className={`font-body transition-all rounded-md px-3 ${
+            className={`font-body border-2 transition-all rounded-md px-3 ${
               pathName === item.url
-                ? "font-semibold border-2 border-[color:var(--primary)] "
-                : "font-normal hover:border hover:border-[color:var(--primary)]"
+                ? "font-semibold border-2 border-primary"
+                : "font-normal border-transparent hover:border-primary"
             }`}
           >
             {item.label}

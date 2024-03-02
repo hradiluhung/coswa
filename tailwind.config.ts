@@ -12,7 +12,7 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "button-gradient": "linear-gradient(0deg, #FF8167 0%, #FF916D 100%)",
+        "button-gradient": "linear-gradient(0deg, #0A0F34 0%, #181E4B 100%)",
       },
       backgroundColor: {
         primary: "var(--primary)",
@@ -45,6 +45,9 @@ const config: Config = {
         tetriary: "var(--tetriary)",
         quaternary: "var(--quaternary)",
         quinary: "var(--quinary)",
+      },
+      height: {
+        500: "500px",
       },
     },
   },

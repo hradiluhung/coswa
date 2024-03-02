@@ -4,10 +4,11 @@ import { ArrowLeftCircle, Users, X } from "react-feather"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 import { useState } from "react"
+import Link from "next/link"
 
 export default function Page({ params }: { params: { id: string } }) {
   const router = useRouter()
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedImage, setSelectedImage] = useState<String | null>(null)
   const armada = armadaList.filter((_, index) => index === Number(params.id))[0]
 
   return (
@@ -27,70 +28,54 @@ export default function Page({ params }: { params: { id: string } }) {
             </div>
           </div>
         </div>
-        <div className="grid lg:grid-cols-4 gap-4 lg:gap-8 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 mt-12">
           <Image
-            width={200}
-            height={200}
-            src={armada.image}
+            width={1500}
+            height={800}
+            src={armada.imageFolder + "/1.jpg"}
             alt="stack-card-bg"
-            className="cursor-pointer object-cover rounded-xl w-full h-full col-span-2 row-span-2"
-            onClick={() => setIsModalOpen(true)}
+            className="cursor-pointer object-cover rounded-xl w-full col-span-2 row-span-2"
+            style={{
+              height: "412px",
+            }}
+            onClick={() => setSelectedImage(armada.imageFolder + "/1.jpg")}
           />
           <Image
-            width={200}
-            height={200}
-            src={armada.image}
+            width={1500}
+            height={800}
+            src={armada.imageFolder + "/2.jpg"}
             alt="stack-card-bg"
-            className="cursor-pointer object-cover rounded-xl w-full h-full col-span-1"
-            onClick={() => setIsModalOpen(true)}
+            className="cursor-pointer object-cover rounded-xl w-full h-48 col-span-2 lg:col-span-1"
+            onClick={() => setSelectedImage(armada.imageFolder + "/2.jpg")}
           />
           <Image
-            width={200}
-            height={200}
-            src={armada.image}
+            width={1500}
+            height={800}
+            src={armada.imageFolder + "/3.jpg"}
             alt="stack-card-bg"
-            className="cursor-pointer object-cover rounded-xl w-full h-full col-span-1"
-            onClick={() => setIsModalOpen(true)}
+            className="cursor-pointer object-cover rounded-xl w-full h-48 col-span-2 lg:col-span-1"
+            onClick={() => setSelectedImage(armada.imageFolder + "/3.jpg")}
           />
           <Image
-            width={200}
-            height={200}
-            src={armada.image}
+            width={1500}
+            height={800}
+            src={armada.imageFolder + "/4.jpg"}
             alt="stack-card-bg"
-            className="cursor-pointer object-cover rounded-xl w-full h-full col-span-1"
-            onClick={() => setIsModalOpen(true)}
+            className="cursor-pointer object-cover rounded-xl w-full h-48 col-span-2 lg:col-span-1"
+            onClick={() => setSelectedImage(armada.imageFolder + "/4.jpg")}
           />
           <Image
-            width={200}
-            height={200}
-            src={armada.image}
+            width={1500}
+            height={800}
+            src={armada.imageFolder + "/5.jpg"}
             alt="stack-card-bg"
-            className="cursor-pointer object-cover rounded-xl w-full h-full col-span-1"
-            onClick={() => setIsModalOpen(true)}
+            className="cursor-pointer object-cover rounded-xl w-full h-48 col-span-2 lg:col-span-1"
+            onClick={() => setSelectedImage(armada.imageFolder + "/5.jpg")}
           />
         </div>
-        <div className="w-full mt-12 gap-12 justify-between items-start flex lg:flex-row flex-col">
+        <div className="w-full mt-12 gap-12 justify-between items-start flex md:flex-row flex-col">
           <div className="basis-2/3">
-            <h2 className="font-title font-semibold text-xl">Deskripsi</h2>
-            <p className="mt-4 text-quaternary text-lg">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-              <br />
-              <br />
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <div className="bg-quinary p-8 rounded-xl mt-8">
+            <div className="bg-quinary p-8 rounded-xl">
               <h2 className="font-title font-semibold text-2xl">Fasilitas</h2>
               <ul className="grid md:grid-cols-2 gap-4 mt-4 list-disc pl-6">
                 {armada.facilities.map((facility, index) => (
@@ -123,48 +108,44 @@ export default function Page({ params }: { params: { id: string } }) {
           </div>
 
           {/* Cek Harga Card */}
-          <div className="p-8 bg-[color:#FFF1DA] basis-1/3 rounded-xl shadow-sm sticky top-24 self-start">
-            <h3 className="font-title font-semibold text-2xl">Cek Harga</h3>
-            <div className="flex flex-col gap-4 mt-6">
-              <select className="w-full cursor-pointer border text-lg border-slate-300 px-4 py-3 rounded-lg">
-                <option value="" className="text-quaternary">
-                  Pilih Kota
-                </option>
-                <option value="Bogor">Bogor</option>
-                <option value="Jakarta">Jakarta</option>
-                <option value="Bandung">Bandung</option>
-                <option value="Bekasi">Bekasi</option>
-              </select>
+          <div className="p-8 bg-[color:#FFF1DA] basis-full w-full md:basis-1/3 rounded-xl shadow-sm sticky top-24 self-start">
+            <h3 className="font-title font-semibold text-2xl">Hubungi Kami</h3>
+            <div className="flex flex-col gap-2 mt-6">
+              <Link
+                href={`https://wa.me/6285281173470?text=Halo%20saya%20ingin%20menyewa%20${armada.name}`}
+                className="bg-button-gradient text-center text-white rounded-lg px-4 py-3 text-lg"
+              >
+                Admin 1
+              </Link>
+              <Link
+                href={`https://wa.me/628119530411?text=Halo%20saya%20ingin%20menyewa%20${armada.name}`}
+                className="bg-button-gradient text-center text-white rounded-lg px-4 py-3 text-lg"
+              >
+                Admin 2
+              </Link>
 
-              <select className="w-full cursor-pointer border text-lg border-slate-300 px-4 py-3 rounded-lg">
-                <option value="" className="text-quaternary">
-                  Pilih Tujuan
-                </option>
-                <option value="1">Bandara Soekarno Hatta</option>
-                <option value="2">Bandara Halim Perdana Kusuma</option>
-                <option value="3">Stasiun Gambir</option>
-                <option value="4">Stasiun Bogor</option>
-              </select>
-
-              <button className="bg-primary text-white rounded-lg px-4 py-3 text-lg">
-                Cek Harga
-              </button>
+              <Link
+                href={`https://wa.me/628119890411?text=Halo%20saya%20ingin%20menyewa%20${armada.name}`}
+                className="bg-button-gradient text-center text-white rounded-lg px-4 py-3 text-lg"
+              >
+                Admin 3
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {isModalOpen && (
-        <div className="fixed inset-0 z-20 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white rounded-xl w-full md:w-auto md:h-2/3 m-2 md:m-4 lg:m-6 relative">
+      {selectedImage && (
+        <div className="fixed inset-0 z-20 bg-black bg-opacity-80 flex items-center justify-center">
+          <div className="bg-white rounded-xl w-full md:w-auto md:h-5/6 m-2 md:m-4 lg:m-6 relative">
             <X
               className="absolute top-4 right-4 cursor-pointer stroke-white bg-red-600 rounded-full"
-              onClick={() => setIsModalOpen(false)}
+              onClick={() => setSelectedImage(null)}
             />
             <Image
-              width={200}
-              height={200}
-              src={armada.image}
+              width={2000}
+              height={2000}
+              src={selectedImage.toString()}
               alt="stack-card-bg"
               className="object-cover rounded-xl w-full h-full"
             />

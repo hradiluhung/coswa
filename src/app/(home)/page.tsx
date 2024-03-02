@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { Mail, Search } from "react-feather"
 import { reasonItems } from "./reason-items"
+import Link from "next/link"
 
 export default function Home() {
   return (
@@ -12,55 +13,43 @@ export default function Home() {
         alt="Home Image"
         className="absolute top-0 right-0 object-cover z-[-1]"
       />
-      <section className="px-4 py-12 md:px-12 md:py-12 lg:px-32 lg:py-24 flex flex-col md:flex-row gap-12 md:gap-0 items-center">
-        <div className="flex flex-col gap-6">
+      <section className="px-4 py-12 md:px-12 md:py-12 lg:px-32 lg:py-16 flex flex-col md:flex-row gap-12 md:gap-16 items-center">
+        <div className="flex flex-col gap-6 md:basis-1/2">
           <div className="flex flex-col gap-2">
             <h1 className="font-title text-5xl font-semibold">
-              Perjalanan terjamin aman Pelayanan pasti nyaman
-            </h1>
-            <p className="text-2xl">
               Perjalanan lebih asik dengan pelayanan terbaik
-            </p>
-          </div>
-          <div className="flex gap-9 items-center">
-            <button className="px-6 py-4 bg-[color:var(--secondary)] transition-all duration-300 text-white rounded-xl hover:shadow-lg hover:shadow-secondary/50">
-              Hubungi Kami
-            </button>
-            <button className="group flex gap-3 items-center">
-              <div className="flex justify-center transition-all duration-300 items-center p-3 rounded-full bg-[color:var(--tetriary)] text-white group-hover:shadow-lg group-hover:shadow-tetriary/50">
-                <Search size={24} />
-              </div>
-              <p className="font-medium text-lg">Lihat Armada</p>
-            </button>
-          </div>
-        </div>
-        <div>
-          <Image
-            src={"/images/hero.png"}
-            width={1000}
-            height={500}
-            alt="Home Image"
-          />
-        </div>
-      </section>
-
-      <section className="px-4 py-12 md:px-12 md:py-12 lg:px-64 lg:py-24 flex flex-col md:flex-row gap-4 md:gap-0 items-center justify-between">
-        <div className="w-full md:basis-1/3">
-          <p className="font-medium text-2xl md:text-3xl lg:text-4xl text-quaternary">
-            Sekilas Tentang
-          </p>
-          <h2 className="text-4xl font-title font-semibold">Coswa</h2>
-        </div>
-        <div className="md:basis-2/3">
-          <div className="shadow-myShadow bg-white p-8 rounded-xl relative">
-            <div className="bg-[color:#FFF1DA] w-24 h-24 rounded-full absolute -top-12 -left-12 -z-10 md:z-0"></div>
-            <p className="text-quaternary md:text-lg font-medium">
+            </h1>
+            <p className="text-lg">
               Coswa Transportation adalah sahabat di setiap perjalanan.
               Terpercaya melayani berbagai kebutuhan perjalanan dengan armada
               unggulan. Profesionalitas crew armada siap diandalkan untuk
               memastikan kenyamanan sampai tujuan.
             </p>
           </div>
+          <div className="flex gap-9 items-center">
+            <Link href="https://wa.me/6285281173470">
+              <button className="px-6 py-4 bg-secondary transition-all duration-300 text-white rounded-xl hover:shadow-lg hover:shadow-secondary/50">
+                Hubungi Kami
+              </button>
+            </Link>
+
+            <Link href="/armada">
+              <button className="group flex gap-3 items-center">
+                <div className="flex justify-center transition-all duration-300 items-center p-3 rounded-full bg-tetriary text-white group-hover:shadow-lg group-hover:shadow-tetriary/50">
+                  <Search size={24} />
+                </div>
+                <p className="font-medium text-lg">Lihat Armada</p>
+              </button>
+            </Link>
+          </div>
+        </div>
+        <div className="md:basis-1/2">
+          <Image
+            src={"/images/hero.png"}
+            width={2000}
+            height={500}
+            alt="Home Image"
+          />
         </div>
       </section>
 
@@ -84,7 +73,7 @@ export default function Home() {
               className="p-9 flex flex-col bg-white items-center rounded-3xl justify-center text-center gap-8 group transition-all duration-300 hover:shadow-myShadow relative"
             >
               <div className="relative">
-                <div className="bg-[color:#FFF1DA] w-16 h-16 rounded-tl-md rounded-tr-sm rounded-bl-sm rounded-br-3xl absolute -bottom-4 -end-4 z-0"></div>
+                <div className="bg-[color:#D8DDFF] w-16 h-16 rounded-tl-md rounded-tr-sm rounded-bl-sm rounded-br-3xl absolute -bottom-4 -end-4 z-0"></div>
                 <Image
                   src={item.image}
                   width={100}

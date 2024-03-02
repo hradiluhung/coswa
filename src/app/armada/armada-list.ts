@@ -1,7 +1,7 @@
 export const armadaList = [
   {
     name: "Big Bus 001 Al Mubdi",
-    image: "/images/armada-placeholder.jpg",
+    imageFolder: "/images/armadas/Al Mubdi",
     type: "JetBus 2 HDD Adiputro",
     capacity: "48-59",
     price: "Rp 2.200.000",
@@ -19,7 +19,7 @@ export const armadaList = [
   },
   {
     name: "Big Bus 002 Al Qowiyyu",
-    image: "/images/armada-placeholder.jpg",
+    imageFolder: "/images/armadas/Al Qowiyyu",
     type: "JetBus 1 Single Glass Morodadi",
     capacity: "48-59",
     price: "Rp 2.200.000",
@@ -36,7 +36,7 @@ export const armadaList = [
   },
   {
     name: "Big Bus 003 Ar Razzaq",
-    image: "/images/armada-placeholder.jpg",
+    imageFolder: "/images/armadas/Ar Razzaq",
     type: "JetBus 3 HDD Adiputro",
     capacity: "48-59",
     price: "Rp 2.200.000",
@@ -54,7 +54,7 @@ export const armadaList = [
   },
   {
     name: "Big Bus 004 Al Fatih",
-    image: "/images/armada-placeholder.jpg",
+    imageFolder: "/images/armadas/Al Fatih",
     type: "Avante H9 Tentrem",
     capacity: "48-59",
     price: "Rp 2.200.000",
@@ -72,7 +72,7 @@ export const armadaList = [
   },
   {
     name: "Big Bus 007 Ar Rafah",
-    image: "/images/armada-placeholder.jpg",
+    imageFolder: "/images/armadas/Ar Rafah",
     type: "JetBus 3 HDD Adiputro",
     capacity: "48-59",
     price: "Rp 2.200.000",
@@ -91,7 +91,7 @@ export const armadaList = [
   },
   {
     name: "Big Bus 008 Al Baa'its",
-    image: "/images/armada-placeholder.jpg",
+    imageFolder: "/images/armadas/Al Baa'its",
     type: "JetBus 3 HDD Adiputro",
     capacity: "48-59",
     price: "Rp 2.200.000",
@@ -110,7 +110,7 @@ export const armadaList = [
   },
   {
     name: "Medium Bus 006 Al Mughni",
-    image: "/images/armada-placeholder.jpg",
+    imageFolder: "/images/armadas/Al Mughni",
     type: "JetBus 3 Medium Bus",
     capacity: "33-29",
     price: "Rp 1.500.000",

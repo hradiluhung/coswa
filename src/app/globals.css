@@ -10,10 +10,10 @@
 
   --primary: #181e4b;
   --primary-rgb: #181e4b;
-  --secondary: #f1a501;
-  --secondary-rgb: 241, 165, 1;
-  --tetriary: #df6951;
-  --tetriary-rgb: 223, 105, 81;
+  --secondary: #150d22;
+  --secondary-rgb: 21, 13, 34;
+  --tetriary: #4b5cf8;
+  --tetriary-rgb: 75, 92, 248;
   --quaternary: #636685;
   --quaternary-rgb: 99, 102, 133;
 }
@@ -29,11 +29,10 @@
 
     --primary: #181e4b;
     --primary-rgb: rgb(24, 30, 75);
-    --secondary: #f1a501;
-
-    --secondary-rgb: 241, 165, 1;
-    --tetriary: #df6951;
-    --tetriary-rgb: 223, 105, 81;
+    --secondary: #150d22;
+    --secondary-rgb: 21, 13, 34;
+    --tetriary: #4b5cf8;
+    --tetriary-rgb: 75, 92, 248;
     --quaternary: #636685;
     --quaternary-rgb: 99, 102, 133;
     --quinary: #f9f7fe;
