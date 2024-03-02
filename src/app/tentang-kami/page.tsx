@@ -36,20 +36,18 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 justify-start items-stretch">
+        <div className="bg-white border-2 border-primary p-8 rounded-xl shadow-md">
           {aboutItems.map((item, index) => (
-            <div key={index}>
-              <h3 className="h-full p-8 text-lg bg-white border border-primary rounded-xl shadow-md">
-                {item}
-              </h3>
-            </div>
+            <>
+              <p className="h-full text-lg">{item}</p>
+              <br />
+            </>
           ))}
         </div>
       </section>
-      <section className="w-full -mt-60 -z-20 bg-tetriary relative h-80 md:h-500"></section>
 
-      <section className="px-4 py-12 md:px-12 md:py-12 lg:px-32 lg:pt-0 lg:pb-48 -mt-36 flex flex-col md:flex-row md:gap-0 items-center justify-between gap-24">
-        <div className="w-full py-12 px-12 md:py-12 md:px-24 lg:py-16 lg:px-32 rounded-tl-[128px] rounded-tr-[64px] rounded-br-[64px] relative overflow-hidden flex flex-col md:flex-row justify-start items-start gap-24 bg-white border border-primary">
+      <section className="bg-tetriary rounded-tl-[64px] rounded-tr-[64px] px-4 py-12 md:px-12 md:py-12 lg:px-32 lg:pt-56 lg:pb-24 lg:-mt-36 flex flex-col md:flex-row md:gap-0 items-center justify-between gap-24">
+        <div className="w-full py-12 px-12 md:py-12 md:px-24 lg:py-16 lg:px-32 rounded-tl-[128px] rounded-tr-[64px] rounded-br-[64px] relative overflow-hidden flex flex-col md:flex-row justify-start items-start gap-24 bg-white border-2 border-primary">
           <div className="flex flex-col md:justify-end md:items-end md:text-end gap-6 basis-1/2 text-quaternary">
             <h2 className="font-title font-semibold text-5xl text-primary">
               Visi
@@ -80,6 +78,41 @@ export default function Page() {
             </ul>
           </div>
         </div>
+      </section>
+      <section className="bg-tetriary w-full grid grid-cols-4 relative">
+        <div className="absolute bg-tetriary w-full h-full opacity-50"></div>
+        <Image
+          src="/images/armadas/Al Baa'its/1.jpg"
+          width={0}
+          height={0}
+          sizes="100vw"
+          alt="Stack Card"
+          className="object-cover w-full h-64"
+        />
+        <Image
+          src="/images/armadas/Al Fatih/1.jpg"
+          width={0}
+          height={0}
+          sizes="100vw"
+          alt="Stack Card"
+          className="object-cover w-full h-64"
+        />
+        <Image
+          src="/images/armadas/Al Mubdi/1.jpg"
+          width={0}
+          height={0}
+          sizes="100vw"
+          alt="Stack Card"
+          className="object-cover w-full h-64"
+        />
+        <Image
+          src="/images/armadas/Al Qowiyyu/1.jpg"
+          width={0}
+          height={0}
+          sizes="100vw"
+          alt="Stack Card"
+          className="object-cover w-full h-64"
+        />
       </section>
     </>
   )

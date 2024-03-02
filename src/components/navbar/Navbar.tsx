@@ -50,34 +50,39 @@ export default function Navbar() {
 
       <div
         onClick={() => setNav(!nav)}
-        className="cursor-pointer z-10 text-gray-500 md:hidden"
+        className="cursor-pointer z-10 md:hidden"
       >
         {nav ? <X size={30} /> : <Menu size={30} />}
       </div>
 
       {nav && (
-        <ul
-          className={`flex flex-col gap-2 justify-center items-center top-0 left-0 w-full h-screen bg-white transition-[translate] ease-in-out duration-500 fixed md:hidden ${
+        <div
+          className={`flex flex-col gap-2 justify-end items-end top-0 left-0 w-full h-screen bg-black bg-opacity-80 transition-[translate] ease-in-out duration-500 fixed md:hidden ${
             // slide down animation
             nav ? "translate-y-0" : "-translate-y-full"
           }`}
         >
-          {navbarItems.map((item, index) => (
-            <li key={index} className="px-4 cursor-pointer text-2xl">
-              <Link
-                key={index}
-                href={item.url}
-                className={`font-body transition-all rounded-md px-3 ${
-                  pathName === item.url
-                    ? "font-semibold border-2 border-[color:var(--primary)] "
-                    : "font-normal hover:border hover:border-[color:var(--primary)]"
-                }`}
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+          <div className="w-4/5 h-full bg-white flex flex-col pt-16 gap-3">
+            {navbarItems.map((item, index) => (
+              <div key={index} className="px-4 cursor-pointer text-2xl">
+                <Link
+                  key={index}
+                  href={item.url}
+                  onClick={() => {
+                    setNav(false)
+                  }}
+                  className={`font-body transition-all rounded-md px-3 ${
+                    pathName === item.url
+                      ? "font-semibold border-2 border-[color:var(--primary)] "
+                      : "font-normal hover:border hover:border-[color:var(--primary)]"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
       )}
     </div>
   )
