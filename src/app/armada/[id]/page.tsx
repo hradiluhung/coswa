@@ -1,5 +1,11 @@
 "use client"
-import { Harga, HargaObj, armadaList, listHarga } from "../armada-list"
+import {
+  Harga,
+  HargaObj,
+  armadaList,
+  listHarga,
+  locations,
+} from "../armada-list"
 import { ArrowLeftCircle, Users, X } from "react-feather"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
@@ -30,37 +36,46 @@ export default function Page({ params }: { params: { id: string } }) {
   }, [])
 
   useEffect(() => {
-    if (listHarga.hasOwnProperty(selectedPlace)) {
-      const data = listHarga[selectedPlace].map((item: HargaObj) => item.durasi)
-      setListDurasi(data)
-    } else {
-      setListDurasi([])
+    for (const key in listHarga) {
+      if (key.includes(selectedPlace)) {
+        const data = listHarga[key].map((item: HargaObj) => item.durasi)
+        setListDurasi(data)
+      }
     }
   }, [selectedPlace])
 
   useEffect(() => {
     if (
-      selectedPlace !== "" &&
-      selectedDurasi !== "" &&
+      selectedPlace === "Transfer In/Out Soekarno Hatta" &&
       armada &&
       armada.size
     ) {
-      const hargaObj = listHarga[selectedPlace].find(
-        (item) => item.durasi === selectedDurasi
-      )
-
-      if (hargaObj) {
-        // Ambil harga berdasarkan ukuran bis
-        const harga = hargaObj.harga[armada.size as keyof Harga]
-
-        if (harga) {
-          setEstimasiHarga(harga)
+      const harga =
+        listHarga["Transfer In/Out Soekarno Hatta"][0].harga[
+          armada.size as keyof Harga
+        ]
+      setEstimasiHarga(harga)
+    } else {
+      if (
+        selectedPlace !== "" &&
+        selectedDurasi !== "" &&
+        armada &&
+        armada.size
+      ) {
+        for (const key in listHarga) {
+          if (key.includes(selectedPlace)) {
+            const data = listHarga[key].find(
+              (item: HargaObj) => item.durasi === selectedDurasi
+            )
+            if (data) {
+              const harga = data.harga[armada.size as keyof Harga]
+              setEstimasiHarga(harga)
+            }
+          }
         }
       } else {
         setEstimasiHarga(0)
       }
-    } else {
-      setEstimasiHarga(0)
     }
   }, [selectedPlace, selectedDurasi, armada])
 
@@ -189,16 +204,19 @@ export default function Page({ params }: { params: { id: string } }) {
                   <option value="" className="text-quaternary">
                     Pilih Kota
                   </option>
-                  {listPlaces.map((place, index) => (
-                    <option key={index} value={place.toString()}>
-                      {place.toString()}
+                  {locations.sort().map((place, index) => (
+                    <option key={index} value={place}>
+                      {place}
                     </option>
                   ))}
                 </select>
 
                 <select
                   className="w-full cursor-pointer border text-lg border-slate-300 px-4 py-3 rounded-lg"
-                  disabled={selectedPlace === ""}
+                  disabled={
+                    selectedPlace === "Transfer In/Out Soekarno Hatta" ||
+                    selectedPlace === ""
+                  }
                   onChange={(e) => {
                     onSelectedDurasiChange(e.target.value)
                   }}
