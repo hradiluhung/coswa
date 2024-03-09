@@ -52,24 +52,23 @@ export default function Footer() {
             >
               <Instagram size={24} />
             </Link>
-            {/* <Link
-              href={"https://www.youtube.com"}
-              className="p-2 bg-slate-100 rounded-full text-primary"
-            >
-              <Youtube size={24} />
-            </Link> */}
             <Link
               href={"https://www.facebook.com"}
               className="p-2 bg-slate-100 rounded-full text-primary"
             >
               <Facebook size={24} />
             </Link>
-            {/* <Link
-              href={"https://www.linkedin.com"}
+            <Link
+              href="https://www.tiktok.com/@coswatransport"
               className="p-2 bg-slate-100 rounded-full text-primary"
             >
-              <Linkedin size={24} />
-            </Link> */}
+              <Image
+                width={24}
+                height={24}
+                src="/images/tik-tok.png"
+                alt="Tiktok"
+              />
+            </Link>
           </div>
         </div>
       </div>
