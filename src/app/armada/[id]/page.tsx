@@ -219,7 +219,7 @@ export default function Page({ params }: { params: { id: string } }) {
                   value={
                     estimasiHarga === 0
                       ? "Estimasi Harga"
-                      : `Estimasi Harga : ${formatRupiah(estimasiHarga)}`
+                      : formatRupiah(estimasiHarga)
                   }
                   disabled
                 />
