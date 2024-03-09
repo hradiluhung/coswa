@@ -14,7 +14,7 @@ export default function Footer() {
         <div className="flex gap-16 lg:gap-32">
           <div className="max-w-96">
             <Image
-              src="/images/logo/logo_text_1.png"
+              src="/images/logo/logo_text_2.png"
               width={150}
               height={100}
               alt="Logo"

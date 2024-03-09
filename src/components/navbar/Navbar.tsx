@@ -26,7 +26,7 @@ export default function Navbar() {
       }`}
     >
       <Image
-        src="/images/logo/logo_text_1.png"
+        src="/images/logo/logo_text_2.png"
         width={100}
         height={100}
         alt="Logo"

@@ -1,15 +1,80 @@
 "use client"
-import { armadaList } from "../armada-list"
+import { Harga, HargaObj, armadaList, listHarga } from "../armada-list"
 import { ArrowLeftCircle, Users, X } from "react-feather"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 
 export default function Page({ params }: { params: { id: string } }) {
   const router = useRouter()
   const [selectedImage, setSelectedImage] = useState<String | null>(null)
+  const [selectedPlace, setSelectedPlace] = useState("")
+  const [selectedDurasi, setSelectedDurasi] = useState("")
+  const [listPlaces, setListPlaces] = useState<String[]>([])
+  const [listDurasi, setListDurasi] = useState<String[]>([])
+  const [estimasiHarga, setEstimasiHarga] = useState(0)
   const armada = armadaList.find((armada) => armada.id === parseInt(params.id))
+
+  const onSelectedPlaceChange = (value: string) => {
+    setSelectedPlace(value)
+  }
+
+  const onSelectedDurasiChange = (value: string) => {
+    setSelectedDurasi(value)
+  }
+
+  useEffect(() => {
+    const list = Object.keys(listHarga)
+    setListPlaces(list)
+  }, [])
+
+  useEffect(() => {
+    if (listHarga.hasOwnProperty(selectedPlace)) {
+      const data = listHarga[selectedPlace].map((item: HargaObj) => item.durasi)
+      setListDurasi(data)
+    } else {
+      setListDurasi([])
+    }
+  }, [selectedPlace])
+
+  useEffect(() => {
+    if (
+      selectedPlace !== "" &&
+      selectedDurasi !== "" &&
+      armada &&
+      armada.size
+    ) {
+      const hargaObj = listHarga[selectedPlace].find(
+        (item) => item.durasi === selectedDurasi
+      )
+
+      if (hargaObj) {
+        // Ambil harga berdasarkan ukuran bis
+        const harga = hargaObj.harga[armada.size as keyof Harga]
+
+        if (harga) {
+          setEstimasiHarga(harga)
+        }
+      } else {
+        setEstimasiHarga(0)
+      }
+    } else {
+      setEstimasiHarga(0)
+    }
+  }, [selectedPlace, selectedDurasi, armada])
+
+  function formatRupiah(angka: number): string {
+    const rupiah = angka.toString().split("").reverse().join("")
+    let hasil = ""
+    for (let i = 0; i < rupiah.length; i++) {
+      if (i % 3 === 0 && i !== 0) {
+        hasil += "."
+      }
+      hasil += rupiah[i]
+    }
+    return "Rp " + hasil.split("").reverse().join("")
+  }
 
   return (
     <>
@@ -109,31 +174,65 @@ export default function Page({ params }: { params: { id: string } }) {
                 </li>
               </ul>
             </div>
-
             {/* Cek Harga Card */}
-            <div className="p-8 bg-[color:#FFF1DA] basis-full w-full md:basis-1/3 rounded-xl shadow-sm sticky top-24 self-start">
+            <div className="p-8 bg-[color:#FFF1DA] basis-1/3 rounded-xl shadow-sm sticky top-24 self-start">
               <h3 className="font-title font-semibold text-2xl">
-                Hubungi Kami
+                Cek Estimasi Harga
               </h3>
-              <div className="flex flex-col gap-2 mt-6">
+              <div className="flex flex-col gap-4 mt-6">
+                <select
+                  className="w-full cursor-pointer border text-lg border-slate-300 px-4 py-3 rounded-lg"
+                  onChange={(e) => {
+                    onSelectedPlaceChange(e.target.value)
+                  }}
+                >
+                  <option value="" className="text-quaternary">
+                    Pilih Kota
+                  </option>
+                  {listPlaces.map((place, index) => (
+                    <option key={index} value={place.toString()}>
+                      {place.toString()}
+                    </option>
+                  ))}
+                </select>
+
+                <select
+                  className="w-full cursor-pointer border text-lg border-slate-300 px-4 py-3 rounded-lg"
+                  disabled={selectedPlace === ""}
+                  onChange={(e) => {
+                    onSelectedDurasiChange(e.target.value)
+                  }}
+                >
+                  <option value="" className="text-quaternary">
+                    Pilih Durasi
+                  </option>
+
+                  {listDurasi.map((durasi, index) => (
+                    <option key={index} value={durasi.toString()}>
+                      {durasi.toString()}
+                    </option>
+                  ))}
+                </select>
+
+                <input
+                  className="w-full cursor-pointer border text-lg border-slate-300 px-4 py-3 rounded-lg disabled:text-slate-800"
+                  value={
+                    estimasiHarga === 0
+                      ? "Estimasi Harga"
+                      : `Estimasi Harga : ${formatRupiah(estimasiHarga)}`
+                  }
+                  disabled
+                />
                 <Link
                   href={`https://wa.me/6285281173470?text=Halo%20saya%20ingin%20menyewa%20${armada.name}`}
-                  className="bg-button-gradient text-center text-white rounded-lg px-4 py-3 text-lg"
+                  className="w-full"
                 >
-                  Admin 1
-                </Link>
-                <Link
-                  href={`https://wa.me/628119530411?text=Halo%20saya%20ingin%20menyewa%20${armada.name}`}
-                  className="bg-button-gradient text-center text-white rounded-lg px-4 py-3 text-lg"
-                >
-                  Admin 2
-                </Link>
-
-                <Link
-                  href={`https://wa.me/628119890411?text=Halo%20saya%20ingin%20menyewa%20${armada.name}`}
-                  className="bg-button-gradient text-center text-white rounded-lg px-4 py-3 text-lg"
-                >
-                  Admin 3
+                  <button
+                    className="w-full bg-primary text-white rounded-lg px-4 py-3 text-lg disabled:opacity-20"
+                    disabled={selectedDurasi === "" || selectedPlace === ""}
+                  >
+                    Dapatkan penawaran terbaik
+                  </button>
                 </Link>
               </div>
             </div>
