@@ -159,7 +159,7 @@ export default function Page() {
                 Medium Bus
               </h1>
               <p className="text-quaternary mt-6 text-center">
-                Medium Bus adalah pilihan armada dengan kapasitas Sedang. Dengan
+                Medium Bus adalah pilihan armada dengan kapasitas sedang. Dengan
                 konfigurasi tempat duduk berkapasitas 33-29 orang, pilihan
                 Medium Bus cocok untuk berpergian dan perjalanan bagi kelompok
                 dalam jumlah kecil dan sedang.
