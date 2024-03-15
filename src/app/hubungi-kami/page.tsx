@@ -94,9 +94,9 @@ export default function Page() {
             <div>
               <h1 className="font-title font-semibold">Admin</h1>
               <ul className="mt-2 gap-4 marker:text-[color:var(--quaternary)] list-disc pl-6">
-                <li>Coswa Cikarang - Mas Iqbal: 085281173470</li>
+                <li>Coswa Cikarang - Mas Arif: 08119890411</li>
                 <li>Coswa Ciamis - Mas Maman: 08119530411</li>
-                <li>Admin - Mas Arif: 08119890411</li>
+                <li>Admin - Mas Iqbal: 085281173470</li>
               </ul>
             </div>
           </div>
