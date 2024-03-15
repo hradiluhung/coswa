@@ -38,10 +38,10 @@ export default function Page() {
 
         <div className="bg-white border-2 border-primary p-8 rounded-xl shadow-md">
           {aboutItems.map((item, index) => (
-            <>
+            <div key={index}>
               <p className="h-full text-lg">{item}</p>
               <br />
-            </>
+            </div>
           ))}
         </div>
       </section>

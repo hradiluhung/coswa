@@ -159,10 +159,10 @@ export default function Page() {
             </div>
             <div className="mt-4 gap-2 w-full text-center flex flex-col">
               <Link
-                href="https://wa.me/6285281173470"
+                href="https://wa.me/628119890411"
                 className="cursor-pointer bg-button-gradient p-2 font-medium text-white rounded-2xl"
               >
-                Coswa Cikarang - Mas Iqbal: 085281173470
+                Coswa Cikarang - Mas Arif: 08119890411
               </Link>
               <Link
                 href="https://wa.me/628119530411"
@@ -172,10 +172,10 @@ export default function Page() {
               </Link>
 
               <Link
-                href="https://wa.me/628119890411"
+                href="https://wa.me/6285281173470"
                 className="cursor-pointer bg-button-gradient p-2 font-medium text-white rounded-2xl"
               >
-                Admin - Mas Arif: 08119890411
+                Admin - Mas Iqbal: 085281173470
               </Link>
             </div>
           </div>

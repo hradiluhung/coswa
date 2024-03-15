@@ -409,7 +409,7 @@ export const listHarga: ListHarga = {
   ],
 }
 
-export const locations = [
+export const destinationLocations = [
   "Transfer In/Out Soekarno Hatta",
   "Kota Jakarta",
   "Bekasi",
@@ -469,4 +469,17 @@ export const locations = [
   "Madura",
   "Bali",
   "Lombok",
+]
+
+// lokasi penjemputan
+export const pickupLocations = [
+  "Jakarta",
+  "Depok",
+  "Karawang",
+  "Bekasi",
+  "Cileungsi",
+  "Tangerang Kota",
+  "Tangerang Kabupaten",
+  "Bogor",
+  "Sentul",
 ]

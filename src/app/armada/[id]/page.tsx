@@ -4,7 +4,8 @@ import {
   HargaObj,
   armadaList,
   listHarga,
-  locations,
+  destinationLocations,
+  pickupLocations,
 } from "../armada-list"
 import { ArrowLeftCircle, Users, X } from "react-feather"
 import { useRouter } from "next/navigation"
@@ -15,38 +16,52 @@ import Link from "next/link"
 export default function Page({ params }: { params: { id: string } }) {
   const router = useRouter()
   const [selectedImage, setSelectedImage] = useState<String | null>(null)
-  const [selectedPlace, setSelectedPlace] = useState("")
+  const [selectedDestinationLocation, setSelectedDestinationLocation] =
+    useState("")
+  const [selectedPickupLocation, setSelectedPickupLocation] = useState("")
   const [selectedDurasi, setSelectedDurasi] = useState("")
-  const [listPlaces, setListPlaces] = useState<String[]>([])
   const [listDurasi, setListDurasi] = useState<String[]>([])
   const [estimasiHarga, setEstimasiHarga] = useState(0)
   const armada = armadaList.find((armada) => armada.id === parseInt(params.id))
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const onSelectedPlaceChange = (value: string) => {
-    setSelectedPlace(value)
+    setSelectedDestinationLocation(value)
   }
 
   const onSelectedDurasiChange = (value: string) => {
     setSelectedDurasi(value)
   }
 
-  useEffect(() => {
-    const list = Object.keys(listHarga)
-    setListPlaces(list)
-  }, [])
+  const onSelectedPickupLocation = (value: string) => {
+    setSelectedPickupLocation(value)
+  }
 
   useEffect(() => {
     for (const key in listHarga) {
-      if (key.includes(selectedPlace)) {
+      if (key.includes(selectedDestinationLocation)) {
         const data = listHarga[key].map((item: HargaObj) => item.durasi)
         setListDurasi(data)
       }
     }
-  }, [selectedPlace])
+  }, [selectedDestinationLocation])
 
   useEffect(() => {
+    let additionalPrice = 0
+
     if (
-      selectedPlace === "Transfer In/Out Soekarno Hatta" &&
+      selectedPickupLocation === "Tangerang Kota" ||
+      selectedPickupLocation === "Bogor" ||
+      selectedPickupLocation === "Sentul"
+    ) {
+      additionalPrice = 500000
+    } else if (selectedPickupLocation === "Tangerang Kabupaten") {
+      additionalPrice = 800000
+    }
+
+    if (
+      selectedPickupLocation !== "" &&
+      selectedDestinationLocation === "Transfer In/Out Soekarno Hatta" &&
       armada &&
       armada.size
     ) {
@@ -54,22 +69,23 @@ export default function Page({ params }: { params: { id: string } }) {
         listHarga["Transfer In/Out Soekarno Hatta"][0].harga[
           armada.size as keyof Harga
         ]
-      setEstimasiHarga(harga)
+      setEstimasiHarga(harga + additionalPrice)
     } else {
       if (
-        selectedPlace !== "" &&
+        selectedPickupLocation !== "" &&
+        selectedDestinationLocation !== "" &&
         selectedDurasi !== "" &&
         armada &&
         armada.size
       ) {
         for (const key in listHarga) {
-          if (key.includes(selectedPlace)) {
+          if (key.includes(selectedDestinationLocation)) {
             const data = listHarga[key].find(
               (item: HargaObj) => item.durasi === selectedDurasi
             )
             if (data) {
               const harga = data.harga[armada.size as keyof Harga]
-              setEstimasiHarga(harga)
+              setEstimasiHarga(harga + additionalPrice)
             }
           }
         }
@@ -77,7 +93,12 @@ export default function Page({ params }: { params: { id: string } }) {
         setEstimasiHarga(0)
       }
     }
-  }, [selectedPlace, selectedDurasi, armada])
+  }, [
+    selectedDestinationLocation,
+    selectedDurasi,
+    selectedPickupLocation,
+    armada,
+  ])
 
   function formatRupiah(angka: number): string {
     const rupiah = angka.toString().split("").reverse().join("")
@@ -177,7 +198,7 @@ export default function Page({ params }: { params: { id: string } }) {
                 </li>
                 <li>
                   <p className="text-lg">
-                    Pelunasan paling lambat 7 hari sebelum keberangkatan.
+                    Pelunasan paling lambat 2 hari sebelum keberangkatan.
                   </p>
                 </li>
                 <li>
@@ -198,13 +219,28 @@ export default function Page({ params }: { params: { id: string } }) {
                 <select
                   className="w-full cursor-pointer border text-lg border-slate-300 px-4 py-3 rounded-lg"
                   onChange={(e) => {
+                    onSelectedPickupLocation(e.target.value)
+                  }}
+                >
+                  <option value="" className="text-quaternary">
+                    Area penjemputan
+                  </option>
+                  {pickupLocations.sort().map((place, index) => (
+                    <option key={index} value={place}>
+                      {place}
+                    </option>
+                  ))}
+                </select>
+                <select
+                  className="w-full cursor-pointer border text-lg border-slate-300 px-4 py-3 rounded-lg"
+                  onChange={(e) => {
                     onSelectedPlaceChange(e.target.value)
                   }}
                 >
                   <option value="" className="text-quaternary">
                     Pilih Kota
                   </option>
-                  {locations.sort().map((place, index) => (
+                  {destinationLocations.sort().map((place, index) => (
                     <option key={index} value={place}>
                       {place}
                     </option>
@@ -214,8 +250,9 @@ export default function Page({ params }: { params: { id: string } }) {
                 <select
                   className="w-full cursor-pointer border text-lg border-slate-300 px-4 py-3 rounded-lg"
                   disabled={
-                    selectedPlace === "Transfer In/Out Soekarno Hatta" ||
-                    selectedPlace === ""
+                    selectedDestinationLocation ===
+                      "Transfer In/Out Soekarno Hatta" ||
+                    selectedDestinationLocation === ""
                   }
                   onChange={(e) => {
                     onSelectedDurasiChange(e.target.value)
@@ -241,17 +278,20 @@ export default function Page({ params }: { params: { id: string } }) {
                   }
                   disabled
                 />
-                <Link
-                  href={`https://wa.me/6285281173470?text=Halo%20saya%20ingin%20menyewa%20${armada.name}`}
-                  className="w-full"
+                <button
+                  className="w-full bg-primary text-white rounded-lg px-4 py-3 text-lg disabled:opacity-20"
+                  disabled={
+                    selectedDestinationLocation ===
+                    "Transfer In/Out Soekarno Hatta"
+                      ? selectedPickupLocation === ""
+                      : selectedDurasi === "" ||
+                        selectedDestinationLocation === "" ||
+                        selectedPickupLocation === ""
+                  }
+                  onClick={() => setIsModalOpen(true)}
                 >
-                  <button
-                    className="w-full bg-primary text-white rounded-lg px-4 py-3 text-lg disabled:opacity-20"
-                    disabled={selectedDurasi === "" || selectedPlace === ""}
-                  >
-                    Dapatkan penawaran terbaik
-                  </button>
-                </Link>
+                  Dapatkan penawaran terbaik
+                </button>
               </div>
             </div>
           </div>
@@ -272,6 +312,43 @@ export default function Page({ params }: { params: { id: string } }) {
               alt="stack-card-bg"
               className="object-cover rounded-xl w-full h-full"
             />
+          </div>
+        </div>
+      )}
+
+      {isModalOpen && armada != undefined && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
+          <div className="bg-white p-8 rounded-2xl">
+            <div className="w-full flex justify-between gap-6 items-center">
+              <h1 className="font-title font-semibold text-2xl">
+                Siapa yang ingin anda hubungi?
+              </h1>
+              <X
+                onClick={() => setIsModalOpen(false)}
+                className="cursor-pointer"
+              />
+            </div>
+            <div className="mt-4 gap-2 w-full text-center flex flex-col">
+              <Link
+                href={`https://wa.me/628119890411?text=Halo%20saya%20ingin%20menyewa%20${armada.name}`}
+                className="cursor-pointer bg-button-gradient p-2 font-medium text-white rounded-2xl"
+              >
+                Coswa Cikarang - Mas Arif: 08119890411
+              </Link>
+              <Link
+                href={`https://wa.me/628119530411?text=Halo%20saya%20ingin%20menyewa%20${armada.name}`}
+                className="cursor-pointer bg-button-gradient p-2 font-medium text-white rounded-2xl"
+              >
+                Coswa Ciamis - Mas Maman: 08119530411
+              </Link>
+
+              <Link
+                href={`https://wa.me/6285281173470?text=Halo%20saya%20ingin%20menyewa%20${armada.name}`}
+                className="cursor-pointer bg-button-gradient p-2 font-medium text-white rounded-2xl"
+              >
+                Admin - Mas Iqbal: 085281173470
+              </Link>
+            </div>
           </div>
         </div>
       )}
