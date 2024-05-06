@@ -341,13 +341,6 @@ export default function Page({ params }: { params: { id: string } }) {
               >
                 Coswa Ciamis - Mas Maman: 08119530411
               </Link>
-
-              <Link
-                href={`https://wa.me/6285281173470?text=Halo%20saya%20ingin%20menyewa%20${armada.name}`}
-                className="cursor-pointer bg-button-gradient p-2 font-medium text-white rounded-2xl"
-              >
-                Admin - Mas Iqbal: 085281173470
-              </Link>
             </div>
           </div>
         </div>

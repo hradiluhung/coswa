@@ -22,7 +22,7 @@ export default function Home() {
             <p className="text-lg">
               Coswa Transportation adalah sahabat di setiap perjalanan.
               Terpercaya melayani berbagai kebutuhan perjalanan dengan armada
-              unggulan. Profesionalitas crew armada siap diandalkan untuk
+              unggulan. Profesionalitas crew armada yang siap diandalkan untuk
               memastikan kenyamanan sampai tujuan.
             </p>
           </div>

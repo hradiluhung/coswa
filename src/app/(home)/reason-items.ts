@@ -14,7 +14,7 @@ export const reasonItems = [
   {
     title: "Pelayanan Unggulan",
     description:
-      "Customer service yang responsif dan ramah. Selalu siap dan sigap membantu kebutuhan anda untuk memastikan kemudahan reservasi dengan transaksi yang aman dan terpercaya.",
+      "Customer service dan crew yang responsif dan ramah. Selalu siap dan sigap membantu kebutuhan anda untuk memastikan kemudahan reservasi dengan transaksi yang aman dan terpercaya.",
     image: "/images/Megaphone.png",
   },
   {

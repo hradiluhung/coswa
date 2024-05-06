@@ -20,12 +20,12 @@ export const armadaList = [
   },
   {
     id: 2,
-    name: "Big Bus 002 Al Qowiyyu",
+    name: "Medium Long 002 Al Qowiyyu",
     imageFolder: "/images/armadas/Al Qowiyyu",
     type: "JetBus 1 Single Glass Morodadi",
-    capacity: "48-59",
-    price: "Rp 2.200.000",
-    size: "big",
+    capacity: "40-45",
+    price: "Rp 2.000.000",
+    size: "medium",
     facilities: [
       "Unit Fresh",
       "Bisa Request seat 2-3 atau 2-2",
@@ -114,24 +114,6 @@ export const armadaList = [
       "Telolet",
     ],
   },
-  {
-    id: 7,
-    name: "Medium Bus 006 Al Mughni",
-    imageFolder: "/images/armadas/Al Mughni",
-    type: "JetBus 3 Medium Bus",
-    capacity: "33-29",
-    price: "Rp 1.500.000",
-    size: "medium",
-    facilities: [
-      "Unit Fresh",
-      "Bisa Request seat 2-3 atau 2-2",
-      "AC",
-      "Audio",
-      "Smart TV",
-      "Karaoke",
-      "Charger",
-    ],
-  },
 ]
 
 // Definisi tipe data untuk harga
@@ -157,7 +139,7 @@ export const listHarga: ListHarga = {
       durasi: "",
       harga: {
         big: 2000000,
-        medium: 1300000,
+        medium: 2000000,
       },
     },
   ],
@@ -166,14 +148,14 @@ export const listHarga: ListHarga = {
       durasi: "1 Hari",
       harga: {
         big: 2200000,
-        medium: 1500000,
+        medium: 2200000,
       },
     },
     {
       durasi: "2 Hari",
       harga: {
         big: 4000000,
-        medium: 2800000,
+        medium: 4000000,
       },
     },
   ],
@@ -182,14 +164,14 @@ export const listHarga: ListHarga = {
       durasi: "1 Hari",
       harga: {
         big: 2700000,
-        medium: 1800000,
+        medium: 2700000,
       },
     },
     {
       durasi: "2 Hari",
       harga: {
         big: 5000000,
-        medium: 3000000,
+        medium: 5000000,
       },
     },
   ],
@@ -198,14 +180,14 @@ export const listHarga: ListHarga = {
       durasi: "1 Hari",
       harga: {
         big: 3000000,
-        medium: 2250000,
+        medium: 3000000,
       },
     },
     {
       durasi: "2 Hari",
       harga: {
         big: 5800000,
-        medium: 3250000,
+        medium: 5800000,
       },
     },
   ],
@@ -214,14 +196,14 @@ export const listHarga: ListHarga = {
       durasi: "1 Hari",
       harga: {
         big: 3200000,
-        medium: 2400000,
+        medium: 3200000,
       },
     },
     {
       durasi: "2 Hari",
       harga: {
         big: 6000000,
-        medium: 3400000,
+        medium: 6000000,
       },
     },
   ],
@@ -230,14 +212,14 @@ export const listHarga: ListHarga = {
       durasi: "1 Hari",
       harga: {
         big: 3600000,
-        medium: 2400000,
+        medium: 3600000,
       },
     },
     {
       durasi: "2 Hari",
       harga: {
         big: 6500000,
-        medium: 4200000,
+        medium: 6500000,
       },
     },
   ],
@@ -246,14 +228,14 @@ export const listHarga: ListHarga = {
       durasi: "1 Hari",
       harga: {
         big: 3900000,
-        medium: 2800000,
+        medium: 3900000,
       },
     },
     {
       durasi: "2 Hari",
       harga: {
         big: 6900000,
-        medium: 4800000,
+        medium: 6900000,
       },
     },
   ],
@@ -262,14 +244,14 @@ export const listHarga: ListHarga = {
       durasi: "1 Hari",
       harga: {
         big: 4300000,
-        medium: 3200000,
+        medium: 4300000,
       },
     },
     {
       durasi: "2 Hari",
       harga: {
         big: 7000000,
-        medium: 5200000,
+        medium: 7000000,
       },
     },
   ],
@@ -278,14 +260,14 @@ export const listHarga: ListHarga = {
       durasi: "1 Hari",
       harga: {
         big: 3800000,
-        medium: 2800000,
+        medium: 3800000,
       },
     },
     {
       durasi: "2 Hari",
       harga: {
         big: 6800000,
-        medium: 4800000,
+        medium: 6800000,
       },
     },
   ],
@@ -294,7 +276,7 @@ export const listHarga: ListHarga = {
       durasi: "2 Hari",
       harga: {
         big: 7500000,
-        medium: 5500000,
+        medium: 7500000,
       },
     },
   ],
@@ -303,7 +285,7 @@ export const listHarga: ListHarga = {
       durasi: "2 Hari",
       harga: {
         big: 7700000,
-        medium: 5700000,
+        medium: 7700000,
       },
     },
   ],
@@ -312,7 +294,7 @@ export const listHarga: ListHarga = {
       durasi: "2 Hari",
       harga: {
         big: 8000000,
-        medium: 5700000,
+        medium: 8000000,
       },
     },
   ],
@@ -321,14 +303,14 @@ export const listHarga: ListHarga = {
       durasi: "2 Hari",
       harga: {
         big: 9500000,
-        medium: 6000000,
+        medium: 9500000,
       },
     },
     {
       durasi: "3 Hari",
       harga: {
         big: 10000000,
-        medium: 6500000,
+        medium: 10000000,
       },
     },
   ],
@@ -337,14 +319,14 @@ export const listHarga: ListHarga = {
       durasi: "3 Hari",
       harga: {
         big: 10500000,
-        medium: 7500000,
+        medium: 10500000,
       },
     },
     {
       durasi: "4 Hari",
       harga: {
         big: 12500000,
-        medium: 9000000,
+        medium: 12500000,
       },
     },
   ],
@@ -353,14 +335,14 @@ export const listHarga: ListHarga = {
       durasi: "3 Hari",
       harga: {
         big: 10800000,
-        medium: 7500000,
+        medium: 10800000,
       },
     },
     {
       durasi: "4 Hari",
       harga: {
         big: 14300000,
-        medium: 9500000,
+        medium: 14300000,
       },
     },
   ],
@@ -369,7 +351,7 @@ export const listHarga: ListHarga = {
       durasi: "6 Hari",
       harga: {
         big: 21000000,
-        medium: 15000000,
+        medium: 21000000,
       },
     },
   ],
@@ -378,14 +360,14 @@ export const listHarga: ListHarga = {
       durasi: "4 Hari",
       harga: {
         big: 16500000,
-        medium: 10000000,
+        medium: 16500000,
       },
     },
     {
       durasi: "5 Hari",
       harga: {
         big: 17800000,
-        medium: 12000000,
+        medium: 17800000,
       },
     },
   ],
@@ -394,7 +376,7 @@ export const listHarga: ListHarga = {
       durasi: "8 Hari",
       harga: {
         big: 29000000,
-        medium: 18500000,
+        medium: 29000000,
       },
     },
   ],
@@ -403,7 +385,7 @@ export const listHarga: ListHarga = {
       durasi: "10 Hari",
       harga: {
         big: 36000000,
-        medium: 23000000,
+        medium: 36000000,
       },
     },
   ],
